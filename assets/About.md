@@ -1,18 +1,22 @@
 # About Us
-Find this repo on GitHub: [phonenums-melodyofasong](https://github.com/melodyofasong)
+Find this repo on GitHub: [phonenums-melodyofasong](https://github.com/melodyofasong/phonenums-melodyofasong)
 
 A Python project built with **Streamlit** and the **phonenumbers** library to extract phone numbers from large bodies of text, built exclusively for **Indian phone numbers** with **99% accuracy**.
 
 ## What it does
-Paste or upload a text document and get back a clean, ready-to-use **CSV file** of all the phone numbers found, perfect for plugging straight into your workflow.
+Paste or upload a text document and get back a clean, ready-to-use **CSV file** of all the phone numbers found — including whether each number is a **mobile**, **landline**, or **unknown** type. Perfect for plugging straight into your workflow.
 
 ## How to use it
 - **Paste** your text directly into the textbox on the main page, or
 - **Upload** a text file
+- Press **Extract →** or hit `Enter` on your keyboard
 
 Your text can be in **any language**, as long as the phone numbers are written in **Latin script**.
 
 > **Note:** There is currently no character limit on the raw text input, paste as much as you like. A **25,000 character limit** will be introduced in a future update.
+
+## Output format
+Results are shown in a preview table with two columns — the phone number in international format, and its type (mobile, landline, or unknown). You can download this as a CSV with one click, and a confirmation will appear when the file is saved.
 
 ## Supported file types
 Currently supported: `.txt`
