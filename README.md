@@ -18,8 +18,13 @@ Built specifically for **Indian phone numbers** (think `+91`, `98201 23456`, `02
 
 - 📋 **Paste raw text** directly into the app
 - 📁 **Upload a `.txt` file** if your text is too long to paste
+- 🏷️ **Phone type detection** — results now include whether each number is a mobile, landline, or unknown type
 - 👀 **Preview** extracted numbers before downloading
 - 📥 **Download as CSV** — ready to plug into whatever workflow you've got
+- ⌨️ **Keyboard shortcut** — hit `Enter` to extract without reaching for the mouse
+- ✅ **Live status updates** — see extraction progress and a count of numbers found on completion
+- ⚠️ **Empty input detection** — warns you immediately if there's nothing to extract from
+- 🔔 **Download confirmation** — a toast notification confirms when your CSV has been saved
 - Works with text in **any language**, as long as the phone numbers are in Latin script
 - No character limit on input... for now (a 25,000 character cap is coming in a future update)
 
@@ -54,10 +59,22 @@ That's it. The app will open in your browser.
 
 1. Open the app
 2. Either **paste your text** into the text box, or **upload a `.txt` file** using the file uploader
-3. Click **Extract → Separate**
-4. Preview your results, then hit **Download as CSV**
+3. Click **Extract →** (or press `Enter`)
+4. Watch the live status update as numbers are found
+5. Preview your results, then hit **Download as CSV**
 
 If you're not sure what to expect, there's a sample output preview on the main page using placeholder text.
+
+---
+
+## Output Format
+
+The downloaded CSV includes two columns:
+
+| Column | Description |
+|--------|-------------|
+| `Phone Number` | Formatted in international format (e.g. `+91 98201 23456`) |
+| `Type` | `mobile`, `landline`, or `unknown` |
 
 ---
 
@@ -118,7 +135,7 @@ Once you've got the text out, paste it straight into the app.
 
 ## Contributing
 
-PRs and issues are welcome! Find the repo on GitHub: [melodyofasong](https://github.com/melodyofasong)
+PRs and issues are welcome! Find the repo on GitHub: [melodyofasong](https://github.com/melodyofasong/phonenums-melodyofasong)
 
 ---
 
