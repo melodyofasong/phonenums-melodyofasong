@@ -3,6 +3,27 @@ from utils.extracter import phonenums
 
 st.set_page_config(page_title="Extract Phone Numbers from text", page_icon='📄')
 
+st.markdown("""
+<style>
+/* alignment */
+.stTabs [data-baseweb="tab-list"] {
+    justify-content: center;
+}
+
+/* remove the default underline gap */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 20px;
+}
+
+/* style individual tabs */
+.stTabs [data-baseweb="tab"] {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.title("Extract Phone Numbers from Text")
 st.caption("Paste text or upload a file — get a clean CSV of every Indian phone number found.")
 with st.sidebar:
