@@ -7,7 +7,7 @@ def paywithchai_sidebar():
 		st.write("☕ Buy me a chai")
 		st.caption("If this tool, a small tip keeps it running.")
 		st.markdown("""
-    	<a href="https://your-paywithchai-link" target="_blank"
+    	<a href="https://www.paywithchai.in/melodyofasong" target="_blank"
        	style="
            display: inline-block;
            padding: 8px 18px;
@@ -33,7 +33,7 @@ def paywithchai_footer():
 		st.write("☕ Found this useful? A small tip helps keep this free.")
 	with col10:
 		st.markdown("""
-    	<a href="https://your-paywithchai-link" target="_blank"
+    	<a href="https://www.paywithchai.in/melodyofasong" target="_blank"
        	style="
         	display: inline-block;
         	padding: 8px 18px;
