@@ -1,2 +1,4 @@
+streamlit
 phonenumbers
 pandas
+faker
