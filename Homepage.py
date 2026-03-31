@@ -1,5 +1,7 @@
 import streamlit as st
 from utils.extracter import phonenums
+from utils.sample_text import generate_sample_text
+from utils.paywithchai import paywithchai_sidebar, paywithchai_footer
 
 st.set_page_config(page_title="Extract Phone Numbers from text", page_icon='📄')
 
@@ -26,27 +28,39 @@ st.markdown("""
 
 st.title("Extract Phone Numbers from Text")
 st.caption("Paste text or upload a file — get a clean CSV of every Indian phone number found.")
-with st.sidebar:
-	st.space()
-	st.space()
-	st.caption("phonenums-melodyofasong")
 
-st.write("Input")
+with st.sidebar:
+	paywithchai_sidebar()
+
+col5, col6 = st.columns(2)
+with col5:
+	st.write("Input")
 
 input_container = st.container(border=True)
 
 with input_container:
-	rawtext, upload, webscraping = st.tabs(["Paste Text", "Upload File", "Web-Scraping"])
+	sample_data, rawtext, upload, webscraping = st.tabs(["Try Sample Data", "Paste Text", 
+														"Upload File", "Web-Scraping"])
+	
+	with sample_data:
+		st.session_state.input_text = generate_sample_text()
+		with st.expander("View sample input document", expanded=True):
+			st.text(st.session_state.input_text)
+
 	with rawtext:
 		placeholder_text = "Please contact our Delhi office at 98201 23456 or reach Priya on +91 84739 20011 for further assistance. You can also call our Mumbai helpline at 022-49871234 or WhatsApp Rajan at 7865043210 for quick responses."
-		text = st.text_area(label="Copy Paste below:", placeholder=placeholder_text, height=150)
+		input_text = st.text_area(label="Copy Paste below:", placeholder=placeholder_text, height=150)
 
 	with upload:
-		file = st.file_uploader("Upload File", type=['txt'])
+		file = st.file_uploader("Upload File", type=['txt'], 
+			help="Upload any document containing phone numbers.")
 		if file is not None:
-			text = file.read().decode('utf-8')
+			input_text = file.read().decode('utf-8', errors='ignore')
 		else:
-			text = None
+			input_text = None
+
+	with webscraping:
+		st.write("This feature will be coming soon.")
 
 	col1, col2 = st.columns([2, 1])
 
@@ -59,11 +73,11 @@ with st.container(border=True) as output_container:
         st.subheader("Results")
     with st.status("Extracting phone numbers...", expanded=True) as status:
     	if extract:
-        	if not text or text.strip() == "":
+        	if not st.session_state.input_text or st.session_state.input_text.strip() == "":
         		st.warning("Input is empty.")
         	else:
         		try:
-        			df = phonenums(text)
+        			df = phonenums(st.session_state.input_text)
         			csv = df.to_csv().encode("utf-8")
         			status.update(label=f"Extracted {len(df)} numbers", state="complete", expanded=False)
         		except Exception as e:
@@ -76,4 +90,4 @@ with st.container(border=True) as output_container:
         			st.toast("Your csv file has been saved.")
         		st.dataframe(df)
 
-st.caption("phonenums-melodyofasong")
+paywithchai_footer()
